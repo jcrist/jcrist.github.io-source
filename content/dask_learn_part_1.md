@@ -15,7 +15,7 @@ library has been built up from these experiments, and can be found
 Before we start, I would like to make the following caveats:
 
 - I am not a machine learning expert. Do not consider this a guide on how to do
-  machine learning, the usage of scikit-learng below is probably naive.
+  machine learning, the usage of scikit-learn below is probably naive.
 - All of the code discussed here is in flux, and shouldn't be considered stable
   or robust. That said, if you know something about machine learning and want
   to help out, I'd be more than happy to receive issues or pull requests :).
@@ -135,8 +135,9 @@ attributes on the resulting object:
 
 Here we'll repeat the same fit using dask-learn. I've tried to match the
 scikit-learn interface as much as possible, although not everything is
-implemented. Here the only thing that really changes is the
-`GridSearchCV` import.
+implemented. Here the only thing that really changes is the `GridSearchCV`
+import. We don't need the `n_jobs` keyword, as this will be parallelized across
+all cores by default.
 
     ::Python
     from dklearn.grid_search import GridSearchCV as DaskGridSearchCV
@@ -247,10 +248,13 @@ look like:
     find_best_parameters(scores)
 
 This can still be parallelized, but in a less straightforward manner - the
-graph is a bit more complicated than just a simple map-reduce pattern. Below is
-a GIF showing how the dask scheduler executed the grid search performed above.
-Each rectangle represents data, and each circle represents a task. Each is
-categorized by color:
+graph is a bit more complicated than just a simple map-reduce pattern.
+Thankfully the [dask
+schedulers](http://dask.pydata.org/en/latest/scheduler-overview.html) are well
+equipped to handle arbitrary graph topologies. Below is a GIF showing how the
+dask scheduler (the threaded scheduler specifically) executed the grid search
+performed above. Each rectangle represents data, and each circle represents a
+task. Each is categorized by color:
 
 - Red means actively taking up resources. These are tasks executing in a thread,
   or intermediate results occupying memory
