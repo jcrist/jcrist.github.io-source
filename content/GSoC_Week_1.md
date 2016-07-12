@@ -7,4 +7,4 @@ Author: Jim Crist
 Summary: Overview of my GSoC Project, Kanes Method, and Linearization
 isnotebook: True
 
-{% notebook ipython_notebooks/Pendulum/Kane_Pendulum_Min_and_Nonmin.ipynb %}
+{% notebook pendulum/Kane_Pendulum_Min_and_Nonmin.ipynb %}

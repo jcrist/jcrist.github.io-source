@@ -12,7 +12,7 @@ TIMEZONE = u'America/Chicago'
 
 DEFAULT_LANG = 'en'
 
-THEME = u'/home/jimmy/Code/blog/theme'
+THEME = u'theme'
 DIRECT_TEMPLATES = (('tag', 'category', 'blog'))
 PAGINATED_DIRECT_TEMPLATES = (('index', 'blog', 'tag', 'category'))
 #TEMPLATE_PAGES = {'home.html': 'index.html'}
@@ -27,7 +27,7 @@ ARCHIVES_SAVE_AS = ''
 
 
 #Plugins:
-PLUGIN_PATH = u'/home/jimmy/Code/blog/plugins/pelican-plugins'
+PLUGIN_PATHS = [u'../pelican-plugins']
 PLUGINS = ['liquid_tags.notebook']
 NOTEBOOK_DIR = 'notebooks'
 MD_EXTENSIONS = ["extra", "codehilite(css_class=highlight)"]
