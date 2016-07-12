@@ -103,8 +103,7 @@ s3_upload: publish
 cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
-github: publish
-	ghp-import -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
-	git push git@github.com:jcrist/jcrist.github.io.git gh-pages:master
+gh_pages:
+	ghp-import $(OUTPUTDIR)
 
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
