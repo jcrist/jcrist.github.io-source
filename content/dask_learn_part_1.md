@@ -5,7 +5,6 @@ Tags: dask
 Slug: dask-sklearn-part-1
 Author: Jim Crist
 Summary: Parallelizing Grid Search with Dask
-Status: draft
 
 This is the first of a series of posts discussing some recent experiments
 combining [dask](http://dask.pydata.org/en/latest/) and
@@ -32,9 +31,9 @@ across different models), and dive into a daskified implementation of
 Many machine learning algorithms have *hyperparameters* which can be tuned to
 improve the performance of the resulting estimator. A [grid
 search](https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search)
-is one way of optimizing these parameters, and works by doing a parameter sweep
-across a cartesian product of a subset of these parameters (the "grid"), and
-then choosing the best resulting estimator. Since this is fitting many
+is one way of optimizing these parameters &mdash; it works by doing a parameter
+sweep across a cartesian product of a subset of these parameters (the "grid"),
+and then choosing the best resulting estimator. Since this is fitting many
 independent estimators across the same set of data, it can be fairly easily
 parallelized.
 
@@ -44,7 +43,8 @@ In scikit-learn, a grid search is performed using the `GridSearchCV` class, and
 can (optionally) be automatically parallelized using
 [joblib](https://pythonhosted.org/joblib/index.html).
 
-This is best illustrated with an example:
+This is best illustrated with an example. First we'll make an example dataset
+for doing classification against:
 
     ::Python
     from sklearn.datasets import make_classification
@@ -97,7 +97,7 @@ What happened here was:
 - An estimator was created for each parameter combination and test-train set
 (scikit-learn's grid search also does cross validation across 3-folds by
 default).
-- Each estimator was fit its corresponding set of training data
+- Each estimator was fit on its corresponding set of training data
 - Each estimator was then scored on its corresponding set of testing data
 - The best set of parameters was chosen based on these scores
 - A new estimator was then fit on *all* of the data, using the best parameters
@@ -182,7 +182,7 @@ attributes on the object. Here we'll just show that they're equivalent:
 
 ## Why is the dask version faster?
 
-If you look at the times above, you'll note that the dask version was `~3.8X`
+If you look at the times above, you'll note that the dask version was `~4X`
 faster than the scikit-learn version. This is not because we have optimized any
 of the pieces of the `Pipeline`, or that there's a significant amount of
 overhead to `joblib` (on the contrary, joblib does some pretty amazing things,
@@ -190,10 +190,7 @@ and I had to construct a contrived example to beat it this badly). The reason
 is simply that the dask version is doing less work.
 
 This maybe best explained in pseudocode. The scikit-learn version of the above
-(in serial) looks something like:
-
-
-In pseudocode this might look like:
+(in serial) looks something like (pseudocode):
 
 
     ::Python
@@ -255,10 +252,10 @@ a GIF showing how the dask scheduler executed the grid search performed above.
 Each rectangle represents data, and each circle represents a task. Each is
 categorized by color:
 
-- Red means actively taking up resources. These are tasks executing in a thread
+- Red means actively taking up resources. These are tasks executing in a thread,
   or intermediate results occupying memory
 
-- Blue means finished or released. These are already finished tasks or data
+- Blue means finished or released. These are already finished tasks, or data
   that's been released from memory because it's no longer needed
 
 <img src="images/grid_search_schedule.gif" alt="Dask Graph Execution" style="width:100%">
@@ -288,6 +285,7 @@ across multiple machines.
     ::Python
     from distributed import Executor
 
+    # Create an Executor, and set it as the default scheduler
     exc = Executor('10.0.0.3:8786', set_as_default=True)
     exc
 <div class=md_output>
@@ -319,18 +317,21 @@ across multiple machines.
     True
 </div>
 
-Note that this is slower than the threaded execution, so it doesn't make sense
-for this workload, but for others it might.
+Note that this is slightly slower than the threaded execution, so it doesn't
+make sense for this workload, but for others it might.
 
 ## What worked well
 
 - The [code for doing
   this](https://github.com/jcrist/dask-learn/blob/master/dklearn/grid_search.py)
-  is quite short. It also makes good use of
-  [dask.delayed](http://dask.pydata.org/en/latest/delayed.html) where possible
-  instead of working with graphs directly, which also makes it easy to read.
+  is quite short.  There's also an implementation of
+  [`RandomizedSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.RandomizedSearchCV.html),
+  which is only a few extra lines (hooray for good class hierarchies!).
+  Instead of working with dask graphs directly, both implementations use
+  [dask.delayed](http://dask.pydata.org/en/latest/delayed.html) wherever
+  possible, which also makes the code easy to read.
 
-- Due to the internal hashing used in dask (which is extensible), duplicate
+- Due to the internal hashing used in dask (which is extensible!), duplicate
   computations are avoided.
 
 - Since the graphs are separated from the scheduler, this works both locally
@@ -354,14 +355,15 @@ for this workload, but for others it might.
   the library, which I don't like. On the other hand, it does mean that this
   version of `GridSearchCV` could be a drop-in for the sckit-learn one.
 
-- This approach is nice, but is really only beneficial when there's duplicate
-  work to be avoided, and that duplicate work is expensive. Repeating the above
-  with only a single estimator (instead of a pipeline) results in identical (or
-  slightly worse) performance than joblib. Similarly, if the repeated steps are
-  cheap the difference in performance is much smaller (try the above using
+- The approach presented here is nice, but is really *only beneficial when
+  there's duplicate work to be avoided, and that duplicate work is expensive*.
+  Repeating the above with only a single estimator (instead of a pipeline)
+  results in identical (or slightly worse) performance than joblib. Similarly,
+  if the repeated steps are cheap the difference in performance is much smaller
+  (try the above using
   [SelectKBest](http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectKBest.html)
   instead of `PCA`).
-  
+
 - The ability to swap easily from local to distributed execution is nice, but
   [distributed also contains a joblib
   frontend](http://distributed.readthedocs.io/en/latest/joblib.html) that can
@@ -373,3 +375,7 @@ I am not a machine learning expert. Is any of this useful? Do you have
 suggestions for improvements (or better yet PRs for improvements :))? Please
 feel free to reach out in the comments below, or [on
 github](https://github.com/jcrist/dask-learn).
+
+*This work is supported by [Continuum Analytics](http://continuum.io/) and the
+[XDATA](http://www.darpa.mil/program/XDATA) program as part of the [Blaze
+Project](http://blaze.pydata.org/).*
