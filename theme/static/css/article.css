@@ -1,0 +1,26 @@
+.MathJax_Display {
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.MathJax a {
+    background-position: 0 22px;
+}
+
+.prompt, .anchor-link {
+    display: none;
+}
+
+.output_text pre {
+    margin-bottom: 6px;
+}
+
+.output_png {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.output img {
+    max-width: 100%;
+    height: auto;
+}

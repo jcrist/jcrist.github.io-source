@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/posts.css" type="text/css" />
+{% endblock head_css %}
+
+{% block content %}
+    <h1 class="page-title">{% block pagetitle %}Blog{% endblock pagetitle %}</h1> 
+
+    <ul class="posts">
+    <hr>
+    {% for article in articles_page.object_list %}
+        <li>
+        <a href="{{ SITEURL }}/{{ article.url }}" >{{ article.title }}</a>
+        <div class="post-summary">
+        {{ article.summary }}
+        </div>
+        <div class="post-meta">
+            <p>
+            in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> &mdash; {{ article.locale_date }}
+            </p>
+        </div>
+        </li>
+        <hr>
+    {% endfor %}
+    </ul>
+    {% include 'pagination.html' %}
+{% endblock content %}

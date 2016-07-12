@@ -1,0 +1,16 @@
+.homepage {
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+    font-size: 25px;
+}
+.homepage p {
+    text-align: center;
+    font-weight: 300;
+}
+
+.homepage h1 {
+    text-align: center;
+    font-weight: 300;
+    font-size: inherit;
+}

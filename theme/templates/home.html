@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/home.css" type="text/css" />
+    <meta name="google-site-verification" content="9CbB5bYgJ7RQ11zEN8ED3-8hBDiOMsBCeZn7apkhsXo" />
+{% endblock head_css %}
+
+{% block content %}
+    <div class="homepage">
+        {{ page.content }}
+    </div>
+{% endblock content %}
