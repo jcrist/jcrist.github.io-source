@@ -41,7 +41,6 @@ TRANSLATION_FEED_ATOM = None
 #Menu-y goodness
 MENUITEMS = [('Blog', '/blog.html'), 
              ('About', '/pages/about.html'),
-             ('Links', '/pages/links.html'),
              ('AIOS', 'https://github.com/jcrist/AIOs')]
 
 DEFAULT_PAGINATION = 10
