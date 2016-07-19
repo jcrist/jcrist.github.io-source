@@ -10,7 +10,7 @@ This is the first of a series of posts discussing some recent experiments
 combining [dask](http://dask.pydata.org/en/latest/) and
 [scikit-learn](http://scikit-learn.org/stable/). A small (and extremely alpha)
 library has been built up from these experiments, and can be found
-[here](https://github.com/jcrist/dask-learn).
+[here](https://github.com/dask/dask-learn).
 
 Before we start, I would like to make the following caveats:
 
@@ -306,14 +306,6 @@ across multiple machines.
 </div>
 
     ::Python
-    %time destimator.fit(X, y)
-<div class=md_output>
-
-    CPU times: user 1.69 s, sys: 433 ms, total: 2.12 s
-    Wall time: 7.66 s
-</div>
-
-    ::Python
     (destimator.best_score_ == estimator.best_score_ and
      destimator.best_params_ == estimator.best_params_)
 <div class=md_output>
@@ -327,7 +319,7 @@ make sense for this workload, but for others it might.
 ## What worked well
 
 - The [code for doing
-  this](https://github.com/jcrist/dask-learn/blob/master/dklearn/grid_search.py)
+  this](https://github.com/dask/dask-learn/blob/master/dklearn/grid_search.py)
   is quite short.  There's also an implementation of
   [`RandomizedSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.RandomizedSearchCV.html),
   which is only a few extra lines (hooray for good class hierarchies!).
@@ -378,7 +370,7 @@ make sense for this workload, but for others it might.
 I am not a machine learning expert. Is any of this useful? Do you have
 suggestions for improvements (or better yet PRs for improvements :))? Please
 feel free to reach out in the comments below, or [on
-github](https://github.com/jcrist/dask-learn).
+github](https://github.com/dask/dask-learn).
 
 *This work is supported by [Continuum Analytics](http://continuum.io/) and the
 [XDATA](http://www.darpa.mil/program/XDATA) program as part of the [Blaze
