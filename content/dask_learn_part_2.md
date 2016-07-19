@@ -1,5 +1,5 @@
 Title: Dask and Scikit-Learn -- Data Parallelism
-Date: 2016-05-12 20:00
+Date: 2016-07-19 14:30
 Category: dask
 Tags: dask
 Slug: dask-sklearn-part-2

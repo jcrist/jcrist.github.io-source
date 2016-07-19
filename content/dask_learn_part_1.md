@@ -1,5 +1,5 @@
 Title: Dask and Scikit-Learn -- Model Parallelism
-Date: 2016-05-11 20:00
+Date: 2016-07-11 20:00
 Category: dask
 Tags: dask
 Slug: dask-sklearn-part-1
