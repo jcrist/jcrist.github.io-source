@@ -237,7 +237,7 @@ dask-learn.
                                    non_negative=True)
 
 
-### Parallization patterns
+### Parallelization patterns
 
 Dask-learn contains several parallelization patterns for wrapping scikit-learn
 estimators. Here we'll create a `Pipeline` for each pattern, which we will
