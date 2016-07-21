@@ -1,5 +1,4 @@
 Title: About
-Date: 2013-11-10 4:11
 
 <img class="avatar" src="http://avatars3.githubusercontent.com/u/2783717?s=200" />
 
