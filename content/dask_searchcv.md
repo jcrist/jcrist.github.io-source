@@ -6,6 +6,15 @@ Slug: introducing-dask-searchcv
 Author: Jim Crist
 Summary: A new library for distributed hyperparameter optimization
 
+## Summary
+
+We introduce [a new library](http://dask-searchcv.readthedocs.io) for doing
+distributed hyperparameter optimization with Scikit-Learn estimators. We
+compare it to the existing Scikit-Learn implementations, and discuss when it
+may be useful compared to other approaches.
+
+## Introduction
+
 Last summer I spent some time experimenting with combining
 [dask](http://dask.pydata.org/en/latest/) and
 [scikit-learn](http://scikit-learn.org/stable/) (chronicled in this
@@ -344,7 +353,7 @@ pipeline this saves only a minute or two, but for more expensive
 transformations or larger grids the savings may be substantial.
 
 
-## When would you use this?
+## When is this useful?
 
 - For single estimators (no `Pipeline` or `FeatureUnion`) Dask-SearchCV
   performs only a small constant factor faster than using Scikit-Learn with
@@ -361,9 +370,9 @@ transformations or larger grids the savings may be substantial.
   will work fine without having to bring the data back locally.
 
 - If your data is too large for Scikit-Learn to work nicely, then this library
-  won't help you. This is just for scheduling Scikit-Learn fits in an
+  won't help you. This is just for scheduling Scikit-Learn estimator fits in an
   intelligent way on small-medium data. It doesn't reimplement any of the
-  algorithms found in Scikit-Learn.
+  algorithms found in Scikit-Learn to scale to larger datasets.
 
 ## Future work
 
@@ -376,9 +385,10 @@ using the asynchronous methods in distributed, and I think would be fun to work
 on. If you have knowledge in this domain, please weigh in on the [related
 issue](https://github.com/dask/dask-searchcv/issues/32).
 
+---
 
-## Acknowledgements
-
-This work is supported by [Continuum Analytics](http://continuum.io/), [the
+*This work is supported by [Continuum Analytics](http://continuum.io/), [the
 XDATA program](http://www.darpa.mil/program/XDATA), and the Data Driven
 Discovery Initiative from the [Moore Foundation](https://www.moore.org/).
+Thanks also to [Matthew Rocklin](http://matthewrocklin.com/blog/) and [Will
+Warner](https://github.com/electronwill) for feedback on drafts of this post.*
