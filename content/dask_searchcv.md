@@ -62,7 +62,7 @@ parallelized.
 ## Example using Text Classification
 
 We'll be reproducing [this
-example](scikit-learn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html).
+example](http://scikit-learn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html).
 using the newsgroups dataset from the scikit-learn docs.
 
 ### Setup
@@ -96,7 +96,7 @@ and a [SGDClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.l
                          ('tfidf', TfidfTransformer()),
                          ('clf', SGDClassifier())])
 
-All of these take several parameters, we'll only do a grid search across a few
+All of these take several parameters. We'll only do a grid search across a few
 of them:
 
     ::Python
@@ -147,8 +147,8 @@ replacement for the Scikit-Learn version. Two noticeable differences:
 
 - The class takes a `get` parameter specifying the
   [scheduler](http://dask.pydata.org/en/latest/scheduler-choice.html#choosing-between-schedulers)
-  to use. By default, the global scheduler is used (if set), otherwise the
-  threaded scheduler is used.
+  to use. By default, if the global scheduler is set then it is used, and if
+  the global scheduler is not set then the threaded scheduler is used.
 
 In this case, we'll use the distributed scheduler setup locally with 8
 processes, each with a single thread. We choose this setup because:
@@ -293,11 +293,11 @@ multiple workers for increased performance.
 Below you can see the [diagnostic
 plot](http://distributed.readthedocs.io/en/latest/web.html) for this run. These
 show the operations that each of 24 workers were doing over time. We can see
-that we're keeping the cluster fairly well saturated. There's a fair bit of
-serialization (red), but the values being serialized are small, so this is
-relatively cheap to do. Note that this plot is also a bit misleading, as the
-red boxes are drawn on top of the running tasks, making it look worse than it
-really is.
+that we're keeping the cluster fairly well saturated with work (blue) and not
+idle time (white). There's a fair bit of serialization (red), but the values
+being serialized are small, so this is relatively cheap to do. Note that this
+plot is also a bit misleading, as the red boxes are drawn on top of the running
+tasks, making it look worse than it really is.
 
 <img src="images/grid_search_task_plot.png" alt="Distributed grid search task plot" style="width:100%">
 
@@ -347,7 +347,7 @@ transformations or larger grids the savings may be substantial.
 ## When would you use this?
 
 - For single estimators (no `Pipeline` or `FeatureUnion`) Dask-SearchCV
-  performs only a small constant factor faster off of using Scikit-Learn with
+  performs only a small constant factor faster than using Scikit-Learn with
   the distributed backend. The benefits of using Dask-SearchCV in these cases
   will be minimal.
 
@@ -362,7 +362,7 @@ transformations or larger grids the savings may be substantial.
 
 - If your data is too large for Scikit-Learn to work nicely, then this library
   won't help you. This is just for scheduling Scikit-Learn fits in an
-  intelligent way on small-medium data, it doesn't reimplement any of the
+  intelligent way on small-medium data. It doesn't reimplement any of the
   algorithms found in Scikit-Learn.
 
 ## Future work
