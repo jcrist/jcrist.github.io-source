@@ -266,8 +266,8 @@ expensive early steps, this can be a big win when performing a grid search.
 ## Distributed Grid Search
 
 Since Dask decouples the scheduler from the graph specification, we can easily
-switch from running on a single machine to running distributed with a quick
-change in scheduler. Here I've setup a cluster of 3
+switch from running on a single machine to running on a cluster
+with a quick change in scheduler. Here I've setup a cluster of 3
 [m4.2xlarge](https://aws.amazon.com/ec2/pricing/on-demand/) instances for the
 workers (each with 8 single-threaded processes), and another instance for the
 scheduler. This was easy to do with a single command using the
@@ -313,16 +313,15 @@ tasks, making it look worse than it really is.
 ## Distributed Grid Search with Joblib
 
 For comparison, we'll also run the Scikit-Learn grid search using joblib with
-the [distributed](http://distributed.readthedocs.io/en/latest/joblib.html)
-backend (which uses dask's distributed scheduler). This is also only a few
-lines changed:
+the [dask.distributed](http://distributed.readthedocs.io/en/latest/joblib.html)
+backend. This is also only a few lines changed:
 
     ::Python
     # Need to import the backend to register it
     import distributed.joblib
     from sklearn.externals.joblib import parallel_backend
 
-    # Use the distributed backend with our current cluster
+    # Use the dask.distributed backend with our current cluster
     with parallel_backend('dask.distributed', '54.146.59.240:8786'):
         %time grid_search.fit(data.data, data.target)
 <div class=md_output>
@@ -357,8 +356,8 @@ transformations or larger grids the savings may be substantial.
 
 - For single estimators (no `Pipeline` or `FeatureUnion`) Dask-SearchCV
   performs only a small constant factor faster than using Scikit-Learn with
-  the distributed backend. The benefits of using Dask-SearchCV in these cases
-  will be minimal.
+  the dask.distributed backend. The benefits of using Dask-SearchCV in these
+  cases will be minimal.
 
 - If the model contains meta estimators (`Pipeline` or `FeatureUnion`) then you
   may start seeing performance benefits, especially if early steps in the
@@ -381,8 +380,8 @@ Currently we just mirror the Scikit-Learn classes `GridSearchCV` and
 While we [can handle very large
 grids](https://github.com/dask/dask-searchcv/issues/29) at some point switching
 to an active search method might be best. Something like this could be built up
-using the asynchronous methods in distributed, and I think would be fun to work
-on. If you have knowledge in this domain, please weigh in on the [related
+using the asynchronous methods in dask.distributed, and I think would be fun to
+work on. If you have knowledge in this domain, please weigh in on the [related
 issue](https://github.com/dask/dask-searchcv/issues/32).
 
 ---
