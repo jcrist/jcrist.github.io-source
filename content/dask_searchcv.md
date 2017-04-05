@@ -313,7 +313,7 @@ tasks, making it look worse than it really is.
 ## Distributed Grid Search with Joblib
 
 For comparison, we'll also run the Scikit-Learn grid search using joblib with
-the [dask.distributed](http://distributed.readthedocs.io/en/latest/joblib.html)
+the [`dask.distributed`](http://distributed.readthedocs.io/en/latest/joblib.html)
 backend. This is also only a few lines changed:
 
     ::Python
@@ -355,8 +355,8 @@ transformations or larger grids the savings may be substantial.
 ## When is this useful?
 
 - For single estimators (no `Pipeline` or `FeatureUnion`) Dask-SearchCV
-  performs only a small constant factor faster than using Scikit-Learn with
-  the dask.distributed backend. The benefits of using Dask-SearchCV in these
+  performs only a small constant factor faster than using Scikit-Learn with the
+  `dask.distributed` backend. The benefits of using Dask-SearchCV in these
   cases will be minimal.
 
 - If the model contains meta estimators (`Pipeline` or `FeatureUnion`) then you
@@ -380,9 +380,9 @@ Currently we just mirror the Scikit-Learn classes `GridSearchCV` and
 While we [can handle very large
 grids](https://github.com/dask/dask-searchcv/issues/29) at some point switching
 to an active search method might be best. Something like this could be built up
-using the asynchronous methods in dask.distributed, and I think would be fun to
-work on. If you have knowledge in this domain, please weigh in on the [related
-issue](https://github.com/dask/dask-searchcv/issues/32).
+using the asynchronous methods in `dask.distributed`, and I think would be fun
+to work on. If you have knowledge in this domain, please weigh in on the
+[related issue](https://github.com/dask/dask-searchcv/issues/32).
 
 ---
 
