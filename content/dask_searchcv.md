@@ -149,15 +149,12 @@ across 8 processes (the number of cores on my machine).
 ### Fitting with Dask-SearchCV
 
 The implementation of `GridSearchCV` in Dask-SearchCV is (almost) a drop-in
-replacement for the Scikit-Learn version. Two noticeable differences:
-
-- The `n_jobs` parameter is absent. In dask this is a property of the selected
-  scheduler, and doesn't make sense to provide as a parameter directly.
-
-- The class takes a `get` parameter specifying the
-  [scheduler](http://dask.pydata.org/en/latest/scheduler-choice.html#choosing-between-schedulers)
-  to use. By default, if the global scheduler is set then it is used, and if
-  the global scheduler is not set then the threaded scheduler is used.
+replacement for the Scikit-Learn version. A few lesser used parameters aren't
+implemented, and there are a few new parameters as well. One of these is the
+`scheduler` parameter for specifying which dask
+[scheduler](http://dask.pydata.org/en/latest/scheduler-choice.html#choosing-between-schedulers)
+to use. By default, if the global scheduler is set then it is used, and if the
+global scheduler is not set then the threaded scheduler is used.
 
 In this case, we'll use the distributed scheduler setup locally with 8
 processes, each with a single thread. We choose this setup because:
