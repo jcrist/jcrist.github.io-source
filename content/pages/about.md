@@ -21,6 +21,8 @@ mostly in the scientific python community. Projects I currently work on, or
 have spent a significant time on in the past include:
 
 - [Dask](http://dask.pydata.org/en/latest/) &mdash; a flexible parallel computing framework
+- [Dask-SearchCV](https://github.com/dask/dask-searchcv) &mdash; hyper-parameter search using Scikit-Learn and Dask
+- [Crick](https://github.com/jcrist/crick/) &mdash; streaming and approximate algorithms
 - [Datashader](https://github.com/bokeh/datashader) &mdash; a bin-based rendering toolchain
 - [SymPy](http://sympy.org) &mdash; a computer algebra system written in Python
 - [PyDy](https://github.com/pydy/pydy) &mdash; tools for dynamic systems analysis, in Python
