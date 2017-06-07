@@ -30,7 +30,7 @@ have spent a significant time on in the past include:
 
 ## Other Interests
 
-I spend my free time on my hobbies. I started rock climbing around 6 years ago,
+I spend my free time on my hobbies. I started rock climbing around 8 years ago,
 and that has easily become the most addicting thing in my life.  I also dance
 West Coast Swing on a fairly regular basis (although not as often as I'd like).
 
