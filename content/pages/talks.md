@@ -38,6 +38,25 @@ Title: Talks
     [[Slides](http://jcrist.github.io/talks/minneanalytics_2017/slides.html)]
 [[Materials](https://github.com/jcrist/talks/blob/master/minneanalytics_2017)]
 
+- **Parallelizing Scientific Python with Dask** (PyData Seattle 2017)
+
+    [[Materials](https://github.com/jcrist/dask-tutorial-pydata-seattle-2017)]
+
+- **Make it Work, Make it Right, Make it Fast - Debugging and Profiling in Dask** (PyData Seattle 2017)
+
+    [[Slides](http://jcrist.github.io/talks/profile_and_debug_dask/slides.html/)]
+[[Materials](https://github.com/jcrist/talks/tree/master/profile_and_debug_dask)]
+
+- **Parallelizing Scientific Python with Dask** (SciPy 2017)
+
+    [[Materials](https://github.com/dask/dask-tutorial/tree/scipy-2017)]
+[[Video](https://www.youtube.com/watch?v=mbfsog3e5DA)]
+
+- **Make it Work, Make it Right, Make it Fast - Debugging and Profiling in Dask** (SciPy 2017)
+
+    [[Slides](http://jcrist.github.io/talks/profile_and_debug_dask/slides.html/)]
+[[Materials](https://github.com/jcrist/talks/tree/master/profile_and_debug_dask)]
+
 ### Dynamics and SymPy:
 
 - **Generating Fast and Correct Code with SymPy** (PyMNtos 9/11/14)
