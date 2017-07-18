@@ -56,6 +56,7 @@ Title: Talks
 
     [[Slides](http://jcrist.github.io/talks/profile_and_debug_dask/slides.html/)]
 [[Materials](https://github.com/jcrist/talks/tree/master/profile_and_debug_dask)]
+[[Video](https://www.youtube.com/watch?v=4WUgRpl-j7Y)]
 
 ### Dynamics and SymPy:
 
