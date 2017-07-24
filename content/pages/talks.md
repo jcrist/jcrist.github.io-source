@@ -41,11 +41,13 @@ Title: Talks
 - **Parallelizing Scientific Python with Dask** (PyData Seattle 2017)
 
     [[Materials](https://github.com/jcrist/dask-tutorial-pydata-seattle-2017)]
+[[Video](https://www.youtube.com/watch?v=VAuFSo2cIhs)]
 
 - **Make it Work, Make it Right, Make it Fast - Debugging and Profiling in Dask** (PyData Seattle 2017)
 
     [[Slides](http://jcrist.github.io/talks/profile_and_debug_dask/slides.html/)]
 [[Materials](https://github.com/jcrist/talks/tree/master/profile_and_debug_dask)]
+[[Video](https://www.youtube.com/watch?v=JoK8V2eWFPE)]
 
 - **Parallelizing Scientific Python with Dask** (SciPy 2017)
 
