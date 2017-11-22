@@ -6,6 +6,12 @@ Slug: dask-sklearn-part-2
 Author: Jim Crist
 Summary: Parallelization patterns for scikit-learn estimators.
 
+*Note: This post is old, and discusses an experimental library that no longer
+exists. Please see [this post on `dask-searchcv`]({filename}/dask_searchcv.md),
+and the [corresponding
+documentation](http://dask-searchcv.readthedocs.io/en/latest/) for the current
+state of things.*
+
 This is part 2 of a series of posts discussing recent work with dask and
 scikit-learn. [In the last post]({filename}/dask_learn_part_1.md) we discussed
 model-parallelism &mdash; fitting several models across the same data. In this

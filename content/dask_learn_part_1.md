@@ -6,6 +6,12 @@ Slug: dask-sklearn-part-1
 Author: Jim Crist
 Summary: Parallelizing Grid Search with Dask
 
+*Note: This post is old, and discusses an experimental library that no longer
+exists. Please see [this post on `dask-searchcv`]({filename}/dask_searchcv.md),
+and the [corresponding
+documentation](http://dask-searchcv.readthedocs.io/en/latest/) for the current
+state of things.*
+
 This is the first of a series of posts discussing some recent experiments
 combining [dask](http://dask.pydata.org/en/latest/) and
 [scikit-learn](http://scikit-learn.org/stable/). A small (and extremely alpha)

@@ -6,6 +6,12 @@ Slug: dask-sklearn-part-3
 Author: Jim Crist
 Summary: Combining model-parallelism and data-parallelism
 
+*Note: This post is old, and discusses an experimental library that no longer
+exists. Please see [this post on `dask-searchcv`]({filename}/dask_searchcv.md),
+and the [corresponding
+documentation](http://dask-searchcv.readthedocs.io/en/latest/) for the current
+state of things.*
+
 This is part 3 of a series of posts discussing [recent
 work](https://github.com/dask/dask-learn) with dask and scikit-learn.
 
