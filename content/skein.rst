@@ -1,19 +1,20 @@
-Introducing Skein: Deploying on YARN the easy way
-#################################################
+Introducing Skein: Deploy Python on Apache YARN the Easy Way
+############################################################
 
 :date: 2018-08-14 12:00
 :category: skein
 :tags: skein
 :slug: introducing-skein
 :author: Jim Crist
-:summary: New tools to simplify deploying YARN applications
+:summary: New tools to simplify deploying Python applications on Apache YARN.
 
 Summary
 -------
 
 We introduce `a new tool and library <https://jcrist.github.io/skein/>`__ for
 deploying applications on Apache YARN. We provide background on why this work
-was necessary, and discuss when it may be useful compared to other approaches.
+was necessary, and demonstrate deploying a simple Python application on a YARN
+cluster.
 
 
 Introduction
