@@ -10,7 +10,6 @@ html, body {
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
     font-size: 20px;
-    line-height: 1.8;
     color: #222222;
 }
 
@@ -74,14 +73,12 @@ h2 {
     padding: 10px 30px 10px 25px;
     margin: 50px -30px 20px -30px;
     border-left: 3px solid #ccccff;
-    line-height: 1;
 }
 
 .page-title {
     padding: 15px 10px 15px 23px;
     border-left: 5px solid #ccccff;
     margin: 40px -30px 30px;
-    line-height: 1;
 }
 
 .page-title p {
@@ -110,6 +107,14 @@ blockquote {
     display: block;
     margin: 1em;
     font-style: italic;
+}
+
+img.align-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 /*

@@ -24,3 +24,21 @@
     max-width: 100%;
     height: auto;
 }
+
+.note {
+    background-color: #EEE;
+    border: 1px solid #CCC;
+    margin: 20px 0px;
+    padding: 10px 20px;
+}
+
+.admonition-title {
+    margin: 0 0 10px 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.last {
+    margin-bottom: 0;
+    font-size: 16px;
+}
