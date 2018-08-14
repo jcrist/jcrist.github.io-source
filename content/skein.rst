@@ -11,9 +11,9 @@ Introducing Skein: Deploying on YARN the easy way
 Summary
 -------
 
-We introduce `a new tool and library <Skein>`_ for deploying applications on
-Apache YARN. We provide background on why this work was necessary, and discuss
-when it may be useful compared to other approaches.
+We introduce `a new tool and library <https://jcrist.github.io/skein/>`__ for
+deploying applications on Apache YARN. We provide background on why this work
+was necessary, and discuss when it may be useful compared to other approaches.
 
 
 Introduction
@@ -38,9 +38,11 @@ deployment support for YARN. This proved difficult for several reasons:
 
 - YARN security (if enabled) uses Kerberos_, which can be tricky to support
   properly. Kerberos is so difficult to get right that one of the core Hadoop
-  developers `wrote a book <beyond_the_madness>`_ where it's compared to the
-  horrors found in `H.P. Lovecraft`_ novels. This, coupled with the myriad of
-  configuration options YARN supports can makes testing applications difficult.
+  developers `wrote a book
+  <https://steveloughran.gitbooks.io/kerberos_and_hadoop/sections/kerberos_the_madness.html>`__
+  where it's compared to the horrors found in `H.P. Lovecraft`_ novels. This,
+  coupled with the myriad of configuration options YARN supports can makes
+  testing applications difficult.
 
 
 .. image:: /images/one-does-not-simply-deploy-on-yarn.jpg
@@ -494,7 +496,6 @@ contributions and feedback from the larger Python community*
 .. _hadoop-test-cluster: https://github.com/jcrist/hadoop-test-cluster
 
 .. _Kerberos: https://en.wikipedia.org/wiki/Kerberos_(protocol)
-.. _beyond_the_madness: https://steveloughran.gitbooks.io/kerberos_and_hadoop/sections/kerberos_the_madness.html
 .. _H.P. Lovecraft: https://en.wikipedia.org/wiki/H._P._Lovecraft
 
 .. _docker-compose: https://docs.docker.com/compose/overview/
