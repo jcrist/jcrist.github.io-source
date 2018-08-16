@@ -20,21 +20,19 @@ Introduction
 ------------
 
 `Apache YARN`_ is the resource management and job scheduling framework native
-to Hadoop clusters. Many data-processing frameworks (e.g. Spark, Flink, Storm,
-etc...) support YARN as a deployment option. Dask previously had some support
-for YARN deployment, but the implementation was buggy and inflexible to
-varying user needs.
+to Hadoop clusters. Many data-processing frameworks like Spark or Flink support
+YARN as a deployment option. As a contributor to Dask_, I sought to improve
+our YARN support. This work resulted in two new libraries:
 
-In an effort to improve this situation, I spent some time developing Skein_, a
-generic library for deploying applications on YARN (you can read more about
-this library in `my previous blogpost
-<http://jcrist.github.io/introducing-skein.html>`__). Skein then was then used
-as the base of a new library (dask-yarn_) for deploying Dask on YARN.
+- Skein_ - a generic library for deploying applications on YARN (you can read
+  more about this library in `my previous blogpost
+  <http://jcrist.github.io/introducing-skein.html>`__).
+- Dask-Yarn_ - a library for deploying Dask on YARN, using Skein as the backend.
 
-These improvements provide greater flexibility and reliability across YARN
-clusters, and the new internals based on Skein make it easier to add features
-moving forward. If you previously tried to deploy Dask on YARN, I hope you'll
-give the new dask-yarn_ a try.
+These tools empower users to use Dask for data-engineering tasks on Hadoop
+clusters, providing access to a field traditionally occupied by Spark and other
+"big-data" tools. If you use a Hadoop cluster and have been wanting to try
+Dask, I hope you'll give dask-yarn a try.
 
 
 Usage
@@ -191,16 +189,14 @@ When is this Useful?
 This functionality brings Dask to anyone that has access to a cluster edge
 node. If you can run ``spark submit`` on your cluster, then dask-yarn should
 work fine for you. This allows Dask to be used for many data-engineering tasks,
-bringing Dask to field traditionally occupied by Spark and other "big-data"
+bringing Dask to a field traditionally occupied by Spark and other "big-data"
 tools.
 
 For users without direct access to the cluster this may be less useful. One
 possibility for bringing support to users with restricted access is to build a
-service similar to Livy_ that runs on the edge node and securely proxies
-connections to Dask clusters running on YARN. This will take a lot more work,
-but enough pieces are in place now that something like this *could* now be
-built. See `this issue <https://github.com/dask/distributed/issues/2043>`__ for
-more discussion.
+service similar to Livy_ that runs on an edge node and securely proxies
+connections to Dask clusters running on YARN. See `this issue
+<https://github.com/dask/distributed/issues/2043>`__ for more discussion.
 
 
 Conclusion and Future Work
