@@ -22,6 +22,9 @@ have spent a significant time on in the past include:
 
 - [Dask](http://dask.pydata.org/en/latest/) &mdash; a flexible parallel computing framework
 - [Dask-SearchCV](https://github.com/dask/dask-searchcv) &mdash; hyper-parameter search using Scikit-Learn and Dask
+- [Skein](https://jcrist.github.io/skein/) &mdash; a tool and library for easy deployment on Apache YARN
+- [Dask-Yarn](http://dask-yarn.readthedocs.io/) &mdash; A library for deploying dask on Apache YARN
+- [Conda-Pack](https://conda.github.io/conda-pack/) &mdash; A tool for packaging Conda environments for redistribution
 - [Crick](https://github.com/jcrist/crick/) &mdash; streaming and approximate algorithms
 - [Datashader](https://github.com/bokeh/datashader) &mdash; a bin-based rendering toolchain
 - [SymPy](http://sympy.org) &mdash; a computer algebra system written in Python
