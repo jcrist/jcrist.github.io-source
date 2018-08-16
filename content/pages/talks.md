@@ -60,6 +60,25 @@ Title: Talks
 [[Materials](https://github.com/jcrist/talks/tree/master/profile_and_debug_dask)]
 [[Video](https://www.youtube.com/watch?v=4WUgRpl-j7Y)]
 
+- **Parallel Data Analysis with Dask** (PyCon 2018)
+
+    [[Materials](https://github.com/TomAugspurger/dask-tutorial-pycon-2018)]
+[[Video](https://www.youtube.com/watch?v=_UWRQZ3nFm0)]
+
+- **Parallelizing Scientific Python with Dask** (SciPy 2018)
+
+    [[Materials](https://github.com/martindurant/dask-tutorial-scipy-2018)]
+[[Video](https://www.youtube.com/watch?v=mqdglv9GnM8)]
+
+
+### Skein:
+
+- **Running Python on Apache YARN** (SciPy 2018 Lightning Talk)
+
+    [[Slides](http://jcrist.github.io/talks/scipy_2018_lightning_talk/slides.html/)]
+[[Video](https://youtu.be/Atc3yw9OdxY?t=54m23s)]
+
+
 ### Dynamics and SymPy:
 
 - **Generating Fast and Correct Code with SymPy** (PyMNtos 9/11/14)
