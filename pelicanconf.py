@@ -14,8 +14,10 @@ DEFAULT_LANG = 'en'
 
 THEME = u'theme'
 DIRECT_TEMPLATES = (('tag', 'category', 'blog'))
-PAGINATED_DIRECT_TEMPLATES = (('index', 'blog', 'tag', 'category'))
-#TEMPLATE_PAGES = {'home.html': 'index.html'}
+PAGINATED_TEMPLATES = {'index': 10,
+                       'blog': 10,
+                       'tag': 10,
+                       'category': 10}
 PROFILE_IMAGE_URL = u'http://www.gravatar.com/avatar/85bba1ca66eb909a289448a90e88f53a?s=200'
 TOP_IMAGE_URL = '/theme/images/logo.png'
 
@@ -27,10 +29,10 @@ ARCHIVES_SAVE_AS = ''
 
 
 #Plugins:
-PLUGIN_PATHS = [u'../pelican-plugins']
-PLUGINS = ['liquid_tags.notebook']
+PLUGIN_PATHS = ['./plugins', '../pelican-plugins']
+PLUGINS = ['ipynb.liquid']
 NOTEBOOK_DIR = 'notebooks'
-MD_EXTENSIONS = ["extra", "codehilite(css_class=highlight)"]
+MARKUP = ['md', 'rst']
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

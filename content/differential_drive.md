@@ -7,4 +7,4 @@ Author: Jim Crist
 Summary: Deriving the dynamics of a differential drive robot in sympy
 isnotebook: True
 
-{% notebook differential_drive.ipynb %}
+{% notebook notebooks/differential_drive.ipynb %}

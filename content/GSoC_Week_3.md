@@ -7,5 +7,5 @@ Author: Jim Crist
 Summary: Progress Report, Linearizing a General System of Equations
 isnotebook: True
 
-{% notebook GSoC_Week_3.ipynb %}
+{% notebook notebooks/GSoC_Week_3.ipynb %}
 

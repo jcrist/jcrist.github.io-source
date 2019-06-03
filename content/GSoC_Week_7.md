@@ -7,5 +7,5 @@ Author: Jim Crist
 Summary: Writing a custom subs and selective simplification
 isnotebook: True
 
-{% notebook GSoC_Week_7.ipynb %}
+{% notebook notebooks/GSoC_Week_7.ipynb %}
 

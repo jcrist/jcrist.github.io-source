@@ -7,5 +7,5 @@ Author: Jim Crist
 Summary: Profiling solution methods to A*x = B
 isnotebook: True
 
-{% notebook GSoC_Week_5.ipynb %}
+{% notebook notebooks/GSoC_Week_5.ipynb %}
 
